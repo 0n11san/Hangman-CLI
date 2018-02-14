@@ -13,7 +13,7 @@ function Word(wrd) {
 
   this.getLets = function() {
     //populate the collection above with new Letter objects
-    for(var i = 0; i<that.word.length; i++){
+    for (var i = 0; i < that.word.length; i++) {
       var newLetter = new Letter(that.word[i]);
       this.letters.push(newLetter);
     }
@@ -21,9 +21,9 @@ function Word(wrd) {
 
   //found the current word
   this.didWeFindTheWord = function() {
-    if(this.letters.every(function(lttr){
-      return lttr.appear === true;
-    })){
+    if (this.letters.every(function(lttr) {
+        return lttr.appear === true;
+      })) {
       this.wordFound = true;
       return true;
     }
@@ -33,8 +33,8 @@ function Word(wrd) {
   this.checkIfLetterFound = function(guessedLetter) {
     var whatToReturn = 0;
     //iterates through each letter to see if it matches the guessed letter
-    this.letters.forEach(function(lttr){
-      if(lttr.letter === guessedLetter){
+    this.letters.forEach(function(lttr) {
+      if (lttr.letter === guessedLetter) {
         lttr.appear = true;
         whatToReturn++;
       }
@@ -46,9 +46,9 @@ function Word(wrd) {
   this.wordRender = function() {
     var display = '';
     //render the word based on if letters are found or not
-    that.letters.forEach(function(lttr){
+    that.letters.forEach(function(lttr) {
       var currentLetter = lttr.letterRender();
-      display+= currentLetter;
+      display += currentLetter;
     });
 
     return display;
